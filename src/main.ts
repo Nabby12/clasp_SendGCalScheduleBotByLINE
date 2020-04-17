@@ -1,7 +1,6 @@
 const GOOGLE_CALENDAR_ID: string = PropertiesService.getScriptProperties().getProperty('GOOGLE_CALENDAR_ID');
 const LINE_NOTIFY_TOKEN: string = PropertiesService.getScriptProperties().getProperty('LINE_NOTIFY_TOKEN');
 const ALLDAY_EVENT_STARTSTR: string = PropertiesService.getScriptProperties().getProperty('ALLDAY_EVENT_STARTSTR');
-const NO_SCHEDULE_REPLY: string = PropertiesService.getScriptProperties().getProperty('NO_SCHEDULE_REPLY');
 const TARGET_HOUR: string = PropertiesService.getScriptProperties().getProperty('TARGET_HOUR');
 const TARGET_MINITUE: string = PropertiesService.getScriptProperties().getProperty('TARGET_MINITUE');
 const TRIGGER_TARGET_FUNCTION: string = PropertiesService.getScriptProperties().getProperty('TRIGGER_TARGET_FUNCTION');
@@ -30,7 +29,7 @@ function getSendBody(): string {
     let todayEvents = trgtCal.getEventsForDay(today);
 
     if (todayEvents.length === 0) {
-        return '\n' + NO_SCHEDULE_REPLY;
+        return;
     }
     
     let sendBody: string = '';
